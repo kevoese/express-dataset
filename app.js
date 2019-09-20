@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var eraseEvents = require('./routes/eraseEvents');
 var events = require('./routes/events');
 var actor = require('./routes/actor');
+var dbSetup = require('./db/config');
 
 var app = express();
 
@@ -47,5 +48,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+dbSetup.dbConfig()
 
 module.exports = app;

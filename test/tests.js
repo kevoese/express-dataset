@@ -80,9 +80,11 @@ describe('git_test ', function() {
 							results[j].should.have.status(e.response.status_code);
 							let ar1 = results[j].body;
 							let ar2 = e.response.body;
+						//	console.log(ar1, arr2, '>>>>>>>>>>>>>>>>>>>>>>>>')
 							if(e.response.status_code == 404) {
 								continue;
 							}
+							
 		 					expect(ar2.length).to.equal(ar1.length);
 							for (let k = 0; k < ar1.length; k++) {
 								expect(ar2[k]).to.deep.equal(ar1[k]);
